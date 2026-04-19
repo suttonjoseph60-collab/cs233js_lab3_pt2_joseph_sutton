@@ -74,11 +74,12 @@ export default class Game {
         let maxScore = -1;
         let winners = [];
 
-        // Loop through all players to find the highest score. 
+        // i changed the line 82 to from ">" to "< so lowest score wins.  
+        // Loop through all players to find the lowest score. 
         // We push to an array instead of just saving one player because ties are possible
         // and we want to return all players who share the top score.
         for (const player of this.players) {
-            if (player.score > maxScore) {
+            if (player.score < maxScore) {
                 maxScore = player.score;
                 winners = [player];
             } else if (player.score === maxScore) {

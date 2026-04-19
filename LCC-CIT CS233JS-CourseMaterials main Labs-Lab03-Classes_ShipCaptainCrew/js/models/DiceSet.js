@@ -26,9 +26,10 @@ export default class DiceSet {
         this.hasCrew = false;
 
         // Simply check the pool of manually held dice for the presence of our target qualifiers.
-        let held6 = false;
-        let held5 = false;
-        let held4 = false;
+        // i decided to set these all to true to avoid locking out the user from holding dice in this version of the game.
+        let held6 = true;
+        let held5 = true;
+        let held4 = true;
 
         for (const die of this.dice) {
             if (die.isHeld) {
@@ -101,6 +102,7 @@ export default class DiceSet {
         return true;
     }
 
+    // made an edit here to avoid 3 being added to sum. 
     getCurrentCargoScore() {
         // A player only scores points if they have acquired the 6, 5, and 4.
         if (this.isQualified()) {
@@ -110,11 +112,22 @@ export default class DiceSet {
             // and subtract the 15 we know comes from the qualifiers.
             let total = 0;
             for (const die of this.dice) {
+                if (die.value === 3) continue; // skip because 3s are worth 0 points
                 total += die.value;
             }
-            return total - 15; 
+            return total; 
         }
         return 0; // If they don't qualify with all three pieces, their score is 0.
+    }
+
+    // made an edit here to avoid 3 being added to sum. 
+    getCurrentCargoScore() {
+        let total = 0;
+        for (const die of this.dice) {
+            if (die.value === 3) continue; // skip because 3s are worth 0 points
+            total += die.value;
+        }
+        return total; 
     }
 
     reset() {
