@@ -1,6 +1,7 @@
 import DiceSet from './DiceSet.js';
 import Player from './Player.js';
 // Written by Brian Bird, 4/10/2026 using Gemini 3.1 in Antigravity.
+// Edited by Joseph Sutton for CS233JS Lab 3 Part 2. Used autocomplete feature in vs code.
 
 // This class represents the overall game state and logic. 
 export default class Game {

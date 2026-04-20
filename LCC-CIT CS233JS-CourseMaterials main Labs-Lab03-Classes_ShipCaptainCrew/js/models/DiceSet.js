@@ -1,3 +1,5 @@
+// Edited by Joseph Sutton for CS233JS Lab 3 Part 2. Used autocomplete feature in vs code. 
+
 import Die from './Die.js';
 
 export default class DiceSet {
